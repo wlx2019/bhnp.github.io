@@ -1,30 +1,103 @@
 /* 基础样式 */
+html {
+    scroll-behavior: smooth; /* 让页面内跳转更平滑 */
+}
+
 body {
-    font-family: 'Noto Serif SC', 'Playfair Display', serif; /* 优雅的字体 */
+    font-family: 'Noto Serif SC', 'Playfair Display', serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #fdfdfd; /* 使用更柔和的背景色 */
     color: #333;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
 }
 
 .highlight {
-    color: #DA291C; /* 番茄红 */
+    color: #e63946; /* 更鲜艳的番茄红 */
     font-weight: bold;
 }
 
+/* 新增：导航栏样式 */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px); /* 毛玻璃效果 */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    position: sticky; /* 粘性定位 */
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1em;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #e63946;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #e63946;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
 /* 头部 */
 header {
-    background-color: #DA291C; /* 番茄红 */
+    background: linear-gradient(to right, #e63946, #f77f00); /* 渐变色背景 */
     color: #fff;
     text-align: center;
-    padding: 40px 0;
+    padding: 50px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -36,14 +109,15 @@ header .company-name {
 
 header h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5em;
+    font-size: 4em;
     margin-bottom: 5px;
     letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 header h3 {
     font-family: 'Noto Serif SC', serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
     opacity: 0.9;
 }
 
@@ -52,11 +126,10 @@ header h3 {
     text-align: center;
     padding: 60px 0;
     background-color: #fff;
-    border-bottom: 1px solid #eee;
 }
 
-.hero-section .slogan {
-    font-size: 1.8em;
+.slogan {
+    font-size: 2em;
     font-style: italic;
     color: #666;
     margin-bottom: 40px;
@@ -67,24 +140,21 @@ header h3 {
     margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .hero-image {
     width: 100%;
-    height: auto;
     display: block;
 }
 
 .feature-section {
-    padding: 80px 0;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap; /* 适应小屏幕 */
+    padding: 100px 0;
+    overflow: hidden; /* 隐藏动画元素的初始状态 */
 }
 
 .feature-section.odd-section {
-    background-color: #f8f8f8;
+    background-color: #fdfdfd;
 }
 
 .feature-section.even-section {
@@ -94,80 +164,81 @@ header h3 {
 .feature-section .container {
     display: flex;
     align-items: center;
-    gap: 50px; /* 内容与图片之间的间距 */
+    gap: 60px;
     flex-wrap: wrap;
 }
 
-.feature-section .content-left,
-.feature-section .content-right {
+.content-left, .content-right {
     flex: 1;
-    min-width: 300px; /* 最小宽度，防止内容过窄 */
+    min-width: 300px;
 }
 
-.feature-section .image-left,
-.feature-section .image-right {
+.image-left, .image-right {
     flex: 1;
-    min-width: 300px; /* 最小宽度 */
+    min-width: 300px;
     text-align: center;
 }
 
 .feature-section h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    color: #DA291C;
+    font-size: 2.8em;
+    color: #333;
     margin-bottom: 20px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 3px solid #e63946;
     padding-bottom: 10px;
+    display: inline-block;
 }
 
 .feature-section p {
     font-size: 1.1em;
     line-height: 1.8;
-    margin-bottom: 15px;
     color: #555;
 }
 
 .feature-image {
     max-width: 100%;
-    height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
 }
 
-/* 确保图片和文字在小屏幕上正常堆叠 */
+.feature-image:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 动画效果定义 */
+.anim-fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.anim-fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* 响应式设计 */
 @media (max-width: 768px) {
-    .feature-section .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .feature-section .content-left,
-    .feature-section .content-right,
-    .feature-section .image-left,
-    .feature-section .image-right {
-        min-width: unset;
-        width: 100%;
-    }
-    .feature-section.even-section .container { /* 偶数section在小屏幕上图片在上 */
-        flex-direction: column-reverse;
-    }
-    header h2 {
-        font-size: 2.5em;
-    }
-    .feature-section h2 {
-        font-size: 2em;
-    }
+    .nav-menu { display: none; } /* 在手机上隐藏导航菜单 */
+    .feature-section .container { flex-direction: column; }
+    .feature-section.even-section .container { flex-direction: column-reverse; }
+    header h2 { font-size: 2.8em; }
+    .feature-section h2 { font-size: 2.2em; }
 }
-
 
 /* 底部 */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #2b2b2b;
+    color: #ccc;
     text-align: center;
-    padding: 30px 0;
+    padding: 40px 0;
     font-size: 0.9em;
 }
 
 footer p {
     margin: 5px 0;
+    color: #aaa;
 }
