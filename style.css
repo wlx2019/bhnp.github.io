@@ -1,0 +1,173 @@
+/* 基础样式 */
+body {
+    font-family: 'Noto Serif SC', 'Playfair Display', serif; /* 优雅的字体 */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.highlight {
+    color: #DA291C; /* 番茄红 */
+    font-weight: bold;
+}
+
+/* 头部 */
+header {
+    background-color: #DA291C; /* 番茄红 */
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .company-name {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    margin-bottom: 5px;
+    letter-spacing: 3px;
+}
+
+header h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* 主体内容 */
+.hero-section {
+    text-align: center;
+    padding: 60px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.hero-section .slogan {
+    font-size: 1.8em;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.hero-image-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.feature-section {
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* 适应小屏幕 */
+}
+
+.feature-section.odd-section {
+    background-color: #f8f8f8;
+}
+
+.feature-section.even-section {
+    background-color: #fff;
+}
+
+.feature-section .container {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* 内容与图片之间的间距 */
+    flex-wrap: wrap;
+}
+
+.feature-section .content-left,
+.feature-section .content-right {
+    flex: 1;
+    min-width: 300px; /* 最小宽度，防止内容过窄 */
+}
+
+.feature-section .image-left,
+.feature-section .image-right {
+    flex: 1;
+    min-width: 300px; /* 最小宽度 */
+    text-align: center;
+}
+
+.feature-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #DA291C;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.feature-section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 确保图片和文字在小屏幕上正常堆叠 */
+@media (max-width: 768px) {
+    .feature-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .feature-section .content-left,
+    .feature-section .content-right,
+    .feature-section .image-left,
+    .feature-section .image-right {
+        min-width: unset;
+        width: 100%;
+    }
+    .feature-section.even-section .container { /* 偶数section在小屏幕上图片在上 */
+        flex-direction: column-reverse;
+    }
+    header h2 {
+        font-size: 2.5em;
+    }
+    .feature-section h2 {
+        font-size: 2em;
+    }
+}
+
+
+/* 底部 */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
